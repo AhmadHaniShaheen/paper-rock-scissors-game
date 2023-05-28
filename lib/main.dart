@@ -68,56 +68,7 @@ class _DicePageState extends State<DicePage> {
                 child: Column(
                   children: [
                     TextButton(
-                      onPressed: () {
-                        setState(() {
-                          if (leftImage == 1 && rightImage == 1) {
-                            setState(() {
-                              icon = Icons.grading;
-                              color = Colors.white;
-                            });
-                          } else if (leftImage == 1 && rightImage == 2) {
-                            setState(() {
-                              icon = Icons.thumb_down;
-                              color = Colors.red;
-                            });
-                          } else if (leftImage == 1 && rightImage == 3) {
-                            setState(() {
-                              icon = Icons.thumb_up;
-                              color = Colors.green;
-                            });
-                          } else if (leftImage == 2 && rightImage == 1) {
-                            setState(() {
-                              icon = Icons.thumb_up;
-                              color = Colors.green;
-                            });
-                          } else if (leftImage == 2 && rightImage == 2) {
-                            setState(() {
-                              icon = Icons.grading;
-                              color = Colors.white;
-                            });
-                          } else if (leftImage == 2 && rightImage == 3) {
-                            setState(() {
-                              icon = Icons.thumb_down;
-                              color = Colors.red;
-                            });
-                          } else if (leftImage == 3 && rightImage == 1) {
-                            setState(() {
-                              icon = Icons.thumb_down;
-                              color = Colors.red;
-                            });
-                          } else if (leftImage == 3 && rightImage == 2) {
-                            setState(() {
-                              icon = Icons.thumb_up;
-                              color = Colors.green;
-                            });
-                          } else if (leftImage == 3 && rightImage == 3) {
-                            setState(() {
-                              icon = Icons.grading;
-                              color = Colors.white;
-                            });
-                          }
-                        });
-                      },
+                      onPressed: () {},
                       child: Image(
                         image: AssetImage('images/img$leftImage.png'),
                       ),
@@ -220,54 +171,7 @@ class _DicePageState extends State<DicePage> {
             onPressed: () {
               setState(() {
                 leftImage = 1;
-
-                rightImage = Random().nextInt(3) + 1;
-                if (leftImage == 1 && rightImage == 1) {
-                  setState(() {
-                    icon = Icons.grading;
-                    color = Colors.white;
-                  });
-                } else if (leftImage == 1 && rightImage == 2) {
-                  setState(() {
-                    icon = Icons.thumb_down;
-                    color = Colors.red;
-                  });
-                } else if (leftImage == 1 && rightImage == 3) {
-                  setState(() {
-                    icon = Icons.thumb_up;
-                    color = Colors.green;
-                  });
-                } else if (leftImage == 2 && rightImage == 1) {
-                  setState(() {
-                    icon = Icons.thumb_up;
-                    color = Colors.green;
-                  });
-                } else if (leftImage == 2 && rightImage == 2) {
-                  setState(() {
-                    icon = Icons.grading;
-                    color = Colors.white;
-                  });
-                } else if (leftImage == 2 && rightImage == 3) {
-                  setState(() {
-                    icon = Icons.thumb_down;
-                    color = Colors.red;
-                  });
-                } else if (leftImage == 3 && rightImage == 1) {
-                  setState(() {
-                    icon = Icons.thumb_down;
-                    color = Colors.red;
-                  });
-                } else if (leftImage == 3 && rightImage == 2) {
-                  setState(() {
-                    icon = Icons.thumb_up;
-                    color = Colors.green;
-                  });
-                } else if (leftImage == 3 && rightImage == 3) {
-                  setState(() {
-                    icon = Icons.grading;
-                    color = Colors.white;
-                  });
-                }
+                roundedWiner();
               });
             },
             child: const Image(
@@ -284,53 +188,7 @@ class _DicePageState extends State<DicePage> {
                   setState(() {
                     leftImage = 2;
 
-                    rightImage = Random().nextInt(3) + 1;
-                    if (leftImage == 1 && rightImage == 1) {
-                      setState(() {
-                        icon = Icons.grading;
-                        color = Colors.white;
-                      });
-                    } else if (leftImage == 1 && rightImage == 2) {
-                      setState(() {
-                        icon = Icons.thumb_down;
-                        color = Colors.red;
-                      });
-                    } else if (leftImage == 1 && rightImage == 3) {
-                      setState(() {
-                        icon = Icons.thumb_up;
-                        color = Colors.green;
-                      });
-                    } else if (leftImage == 2 && rightImage == 1) {
-                      setState(() {
-                        icon = Icons.thumb_up;
-                        color = Colors.green;
-                      });
-                    } else if (leftImage == 2 && rightImage == 2) {
-                      setState(() {
-                        icon = Icons.grading;
-                        color = Colors.white;
-                      });
-                    } else if (leftImage == 2 && rightImage == 3) {
-                      setState(() {
-                        icon = Icons.thumb_down;
-                        color = Colors.red;
-                      });
-                    } else if (leftImage == 3 && rightImage == 1) {
-                      setState(() {
-                        icon = Icons.thumb_down;
-                        color = Colors.red;
-                      });
-                    } else if (leftImage == 3 && rightImage == 2) {
-                      setState(() {
-                        icon = Icons.thumb_up;
-                        color = Colors.green;
-                      });
-                    } else if (leftImage == 3 && rightImage == 3) {
-                      setState(() {
-                        icon = Icons.grading;
-                        color = Colors.white;
-                      });
-                    }
+                    roundedWiner();
                   });
                 },
                 child: const Image(
@@ -342,53 +200,7 @@ class _DicePageState extends State<DicePage> {
                 onPressed: () {
                   setState(() {
                     leftImage = 3;
-                    rightImage = Random().nextInt(3) + 1;
-                    if (leftImage == 1 && rightImage == 1) {
-                      setState(() {
-                        icon = Icons.grading;
-                        color = Colors.white;
-                      });
-                    } else if (leftImage == 1 && rightImage == 2) {
-                      setState(() {
-                        icon = Icons.thumb_down;
-                        color = Colors.red;
-                      });
-                    } else if (leftImage == 1 && rightImage == 3) {
-                      setState(() {
-                        icon = Icons.thumb_up;
-                        color = Colors.green;
-                      });
-                    } else if (leftImage == 2 && rightImage == 1) {
-                      setState(() {
-                        icon = Icons.thumb_up;
-                        color = Colors.green;
-                      });
-                    } else if (leftImage == 2 && rightImage == 2) {
-                      setState(() {
-                        icon = Icons.grading;
-                        color = Colors.white;
-                      });
-                    } else if (leftImage == 2 && rightImage == 3) {
-                      setState(() {
-                        icon = Icons.thumb_down;
-                        color = Colors.red;
-                      });
-                    } else if (leftImage == 3 && rightImage == 1) {
-                      setState(() {
-                        icon = Icons.thumb_down;
-                        color = Colors.red;
-                      });
-                    } else if (leftImage == 3 && rightImage == 2) {
-                      setState(() {
-                        icon = Icons.thumb_up;
-                        color = Colors.green;
-                      });
-                    } else if (leftImage == 3 && rightImage == 3) {
-                      setState(() {
-                        icon = Icons.grading;
-                        color = Colors.white;
-                      });
-                    }
+                    roundedWiner();
                   });
                 },
                 child: const Image(
@@ -401,5 +213,55 @@ class _DicePageState extends State<DicePage> {
         ],
       ),
     );
+  }
+
+  void roundedWiner() {
+    rightImage = Random().nextInt(3) + 1;
+    if (leftImage == 1 && rightImage == 1) {
+      setState(() {
+        icon = Icons.grading;
+        color = Colors.white;
+      });
+    } else if (leftImage == 1 && rightImage == 2) {
+      setState(() {
+        icon = Icons.thumb_down;
+        color = Colors.red;
+      });
+    } else if (leftImage == 1 && rightImage == 3) {
+      setState(() {
+        icon = Icons.thumb_up;
+        color = Colors.green;
+      });
+    } else if (leftImage == 2 && rightImage == 1) {
+      setState(() {
+        icon = Icons.thumb_up;
+        color = Colors.green;
+      });
+    } else if (leftImage == 2 && rightImage == 2) {
+      setState(() {
+        icon = Icons.grading;
+        color = Colors.white;
+      });
+    } else if (leftImage == 2 && rightImage == 3) {
+      setState(() {
+        icon = Icons.thumb_down;
+        color = Colors.red;
+      });
+    } else if (leftImage == 3 && rightImage == 1) {
+      setState(() {
+        icon = Icons.thumb_down;
+        color = Colors.red;
+      });
+    } else if (leftImage == 3 && rightImage == 2) {
+      setState(() {
+        icon = Icons.thumb_up;
+        color = Colors.green;
+      });
+    } else if (leftImage == 3 && rightImage == 3) {
+      setState(() {
+        icon = Icons.grading;
+        color = Colors.white;
+      });
+    }
   }
 }
