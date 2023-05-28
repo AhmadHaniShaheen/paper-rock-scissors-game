@@ -70,8 +70,6 @@ class _DicePageState extends State<DicePage> {
                     TextButton(
                       onPressed: () {
                         setState(() {
-                          leftImage = Random().nextInt(3) + 1;
-                          rightImage = Random().nextInt(3) + 1;
                           if (leftImage == 1 && rightImage == 1) {
                             setState(() {
                               icon = Icons.grading;
@@ -215,6 +213,191 @@ class _DicePageState extends State<DicePage> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 50,
+          ),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                leftImage = 1;
+
+                rightImage = Random().nextInt(3) + 1;
+                if (leftImage == 1 && rightImage == 1) {
+                  setState(() {
+                    icon = Icons.grading;
+                    color = Colors.white;
+                  });
+                } else if (leftImage == 1 && rightImage == 2) {
+                  setState(() {
+                    icon = Icons.thumb_down;
+                    color = Colors.red;
+                  });
+                } else if (leftImage == 1 && rightImage == 3) {
+                  setState(() {
+                    icon = Icons.thumb_up;
+                    color = Colors.green;
+                  });
+                } else if (leftImage == 2 && rightImage == 1) {
+                  setState(() {
+                    icon = Icons.thumb_up;
+                    color = Colors.green;
+                  });
+                } else if (leftImage == 2 && rightImage == 2) {
+                  setState(() {
+                    icon = Icons.grading;
+                    color = Colors.white;
+                  });
+                } else if (leftImage == 2 && rightImage == 3) {
+                  setState(() {
+                    icon = Icons.thumb_down;
+                    color = Colors.red;
+                  });
+                } else if (leftImage == 3 && rightImage == 1) {
+                  setState(() {
+                    icon = Icons.thumb_down;
+                    color = Colors.red;
+                  });
+                } else if (leftImage == 3 && rightImage == 2) {
+                  setState(() {
+                    icon = Icons.thumb_up;
+                    color = Colors.green;
+                  });
+                } else if (leftImage == 3 && rightImage == 3) {
+                  setState(() {
+                    icon = Icons.grading;
+                    color = Colors.white;
+                  });
+                }
+              });
+            },
+            child: const Image(
+              width: 80,
+              height: 80,
+              image: AssetImage('images/img1.png'),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    leftImage = 2;
+
+                    rightImage = Random().nextInt(3) + 1;
+                    if (leftImage == 1 && rightImage == 1) {
+                      setState(() {
+                        icon = Icons.grading;
+                        color = Colors.white;
+                      });
+                    } else if (leftImage == 1 && rightImage == 2) {
+                      setState(() {
+                        icon = Icons.thumb_down;
+                        color = Colors.red;
+                      });
+                    } else if (leftImage == 1 && rightImage == 3) {
+                      setState(() {
+                        icon = Icons.thumb_up;
+                        color = Colors.green;
+                      });
+                    } else if (leftImage == 2 && rightImage == 1) {
+                      setState(() {
+                        icon = Icons.thumb_up;
+                        color = Colors.green;
+                      });
+                    } else if (leftImage == 2 && rightImage == 2) {
+                      setState(() {
+                        icon = Icons.grading;
+                        color = Colors.white;
+                      });
+                    } else if (leftImage == 2 && rightImage == 3) {
+                      setState(() {
+                        icon = Icons.thumb_down;
+                        color = Colors.red;
+                      });
+                    } else if (leftImage == 3 && rightImage == 1) {
+                      setState(() {
+                        icon = Icons.thumb_down;
+                        color = Colors.red;
+                      });
+                    } else if (leftImage == 3 && rightImage == 2) {
+                      setState(() {
+                        icon = Icons.thumb_up;
+                        color = Colors.green;
+                      });
+                    } else if (leftImage == 3 && rightImage == 3) {
+                      setState(() {
+                        icon = Icons.grading;
+                        color = Colors.white;
+                      });
+                    }
+                  });
+                },
+                child: const Image(
+                  width: 80,
+                  image: AssetImage('images/img2.png'),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    leftImage = 3;
+                    rightImage = Random().nextInt(3) + 1;
+                    if (leftImage == 1 && rightImage == 1) {
+                      setState(() {
+                        icon = Icons.grading;
+                        color = Colors.white;
+                      });
+                    } else if (leftImage == 1 && rightImage == 2) {
+                      setState(() {
+                        icon = Icons.thumb_down;
+                        color = Colors.red;
+                      });
+                    } else if (leftImage == 1 && rightImage == 3) {
+                      setState(() {
+                        icon = Icons.thumb_up;
+                        color = Colors.green;
+                      });
+                    } else if (leftImage == 2 && rightImage == 1) {
+                      setState(() {
+                        icon = Icons.thumb_up;
+                        color = Colors.green;
+                      });
+                    } else if (leftImage == 2 && rightImage == 2) {
+                      setState(() {
+                        icon = Icons.grading;
+                        color = Colors.white;
+                      });
+                    } else if (leftImage == 2 && rightImage == 3) {
+                      setState(() {
+                        icon = Icons.thumb_down;
+                        color = Colors.red;
+                      });
+                    } else if (leftImage == 3 && rightImage == 1) {
+                      setState(() {
+                        icon = Icons.thumb_down;
+                        color = Colors.red;
+                      });
+                    } else if (leftImage == 3 && rightImage == 2) {
+                      setState(() {
+                        icon = Icons.thumb_up;
+                        color = Colors.green;
+                      });
+                    } else if (leftImage == 3 && rightImage == 3) {
+                      setState(() {
+                        icon = Icons.grading;
+                        color = Colors.white;
+                      });
+                    }
+                  });
+                },
+                child: const Image(
+                  width: 80,
+                  image: AssetImage('images/img3.png'),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
