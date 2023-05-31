@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -27,8 +28,11 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   int leftImage = 1;
   int rightImage = 1;
-  Color color = Colors.white;
+  Color color = Colors.blue;
   IconData icon = Icons.grading;
+  Duration duration = const Duration(milliseconds: 800);
+  double scale = 1;
+  double turns = 0;
 
   /*
   img1= cut
@@ -52,10 +56,28 @@ class _DicePageState extends State<DicePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                icon,
-                color: color,
-                size: 48,
+              AnimatedRotation(
+                duration: duration,
+                turns: turns,
+                child: AnimatedScale(
+                  duration: duration,
+                  scale: scale,
+                  curve: Curves.bounceIn,
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        icon,
+                        color: color,
+                        size: 48,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -67,10 +89,22 @@ class _DicePageState extends State<DicePage> {
               Expanded(
                 child: Column(
                   children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Image(
-                        image: AssetImage('images/img$leftImage.png'),
+                    AnimatedScale(
+                      duration: duration,
+                      scale: scale,
+                      curve: Curves.bounceIn,
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Image(
+                            image: AssetImage('images/img$leftImage.png'),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -95,61 +129,22 @@ class _DicePageState extends State<DicePage> {
               Expanded(
                 child: Column(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        setState(() {
-                          leftImage = Random().nextInt(3) + 1;
-                          rightImage = Random().nextInt(3) + 1;
-                          if (leftImage == 1 && rightImage == 1) {
-                            setState(() {
-                              icon = Icons.grading;
-                              color = Colors.white;
-                            });
-                          } else if (leftImage == 1 && rightImage == 2) {
-                            setState(() {
-                              icon = Icons.thumb_down;
-                              color = Colors.red;
-                            });
-                          } else if (leftImage == 1 && rightImage == 3) {
-                            setState(() {
-                              icon = Icons.thumb_up;
-                              color = Colors.green;
-                            });
-                          } else if (leftImage == 2 && rightImage == 1) {
-                            setState(() {
-                              icon = Icons.thumb_up;
-                              color = Colors.green;
-                            });
-                          } else if (leftImage == 2 && rightImage == 2) {
-                            setState(() {
-                              icon = Icons.grading;
-                              color = Colors.white;
-                            });
-                          } else if (leftImage == 2 && rightImage == 3) {
-                            setState(() {
-                              icon = Icons.thumb_down;
-                              color = Colors.red;
-                            });
-                          } else if (leftImage == 3 && rightImage == 1) {
-                            setState(() {
-                              icon = Icons.thumb_down;
-                              color = Colors.red;
-                            });
-                          } else if (leftImage == 3 && rightImage == 2) {
-                            setState(() {
-                              icon = Icons.thumb_up;
-                              color = Colors.green;
-                            });
-                          } else if (leftImage == 3 && rightImage == 3) {
-                            setState(() {
-                              icon = Icons.grading;
-                              color = Colors.white;
-                            });
-                          }
-                        });
-                      },
-                      child: Image(
-                        image: AssetImage('images/img$rightImage.png'),
+                    AnimatedScale(
+                      duration: duration,
+                      scale: scale,
+                      curve: Curves.bounceIn,
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Image(
+                            image: AssetImage('images/img$rightImage.png'),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -167,45 +162,95 @@ class _DicePageState extends State<DicePage> {
           const SizedBox(
             height: 50,
           ),
-          TextButton(
-            onPressed: () {
-              setState(() {
-                leftImage = 1;
-                roundedWiner();
-              });
-            },
-            child: const Image(
-              width: 80,
-              height: 80,
-              image: AssetImage('images/img1.png'),
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+            ),
+            child: TextButton(
+              onPressed: () {
+                setState(
+                  () {
+                    leftImage = 1;
+                    roundedWiner();
+                    scale = 0;
+                    turns = 1;
+                  },
+                );
+                Timer(duration, () {
+                  setState(() {
+                    scale = 1;
+                    turns += 1;
+                  });
+                });
+              },
+              child: const Image(
+                width: 80,
+                height: 80,
+                image: AssetImage('images/img1.png'),
+              ),
             ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    leftImage = 2;
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      leftImage = 2;
 
-                    roundedWiner();
-                  });
-                },
-                child: const Image(
-                  width: 80,
-                  image: AssetImage('images/img2.png'),
+                      roundedWiner();
+                      scale = 0;
+                      turns += 1;
+                    });
+                    Timer(duration, () {
+                      setState(() {
+                        scale = 1;
+                        turns += 1;
+                      });
+                    });
+                  },
+                  child: const Image(
+                    width: 80,
+                    image: AssetImage('images/img2.png'),
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    leftImage = 3;
-                    roundedWiner();
-                  });
-                },
-                child: const Image(
-                  width: 80,
-                  image: AssetImage('images/img3.png'),
+              const SizedBox(
+                width: 8,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      leftImage = 3;
+                      roundedWiner();
+                      scale = 0;
+                      turns = 1;
+                    });
+                    Timer(duration, () {
+                      setState(() {
+                        scale = 1;
+                        turns += 1;
+                      });
+                    });
+                  },
+                  child: const Image(
+                    width: 80,
+                    image: AssetImage('images/img3.png'),
+                  ),
                 ),
               ),
             ],
@@ -220,7 +265,7 @@ class _DicePageState extends State<DicePage> {
     if (leftImage == 1 && rightImage == 1) {
       setState(() {
         icon = Icons.grading;
-        color = Colors.white;
+        color = Colors.blue;
       });
     } else if (leftImage == 1 && rightImage == 2) {
       setState(() {
@@ -240,7 +285,7 @@ class _DicePageState extends State<DicePage> {
     } else if (leftImage == 2 && rightImage == 2) {
       setState(() {
         icon = Icons.grading;
-        color = Colors.white;
+        color = Colors.blue;
       });
     } else if (leftImage == 2 && rightImage == 3) {
       setState(() {
@@ -260,7 +305,7 @@ class _DicePageState extends State<DicePage> {
     } else if (leftImage == 3 && rightImage == 3) {
       setState(() {
         icon = Icons.grading;
-        color = Colors.white;
+        color = Colors.blue;
       });
     }
   }
